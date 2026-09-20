@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Madhuja Suryawanshi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="pulse-bar"></div>
+
+  <aside class="sidebar">
+    <a href="index.html" class="logo">MS</a>
+    <button class="sidebar-toggle" aria-label="Toggle menu">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <section class="panel fade-in">
+      <div class="panel-header" data-watermark="Projects">
+        <h1>Projects</h1>
+        <span class="panel-meta">3 featured</span>
+      </div>
+
+      <div class="project-feature">
+        <p class="project-type">Research Paper</p>
+        <h3>Understanding Consumer Attrition: Churn Prediction & Segmentation</h3>
+        <ul>
+          <li>Engineered RFM features on 800K+ transaction records from the Online Retail II dataset</li>
+          <li>Compared Logistic Regression, Random Forest, and XGBoost; selected Logistic Regression (Recall 0.82, ROC-AUC 0.78) using a recall-first evaluation</li>
+          <li>Applied SHAP analysis to identify purchase frequency as the top churn driver</li>
+          <li>Built an RFM-based customer segmentation dashboard in Power BI; targeting journal publication</li>
+        </ul>
+        <div class="tech-row">
+          <span class="tech-chip">Python</span>
+          <span class="tech-chip">Power BI</span>
+          <span class="tech-chip">SHAP</span>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <div class="project-card">
+          <p class="project-type">Cybersecurity</p>
+          <h3>PassShield</h3>
+          <ul>
+            <li>Password strength analyzer and breach checker with a business-relevant analytics layer</li>
+            <li>Power BI dashboard with KPI cards and 4 visualizations</li>
+          </ul>
+          <div class="tech-row">
+            <span class="tech-chip">Python</span>
+            <span class="tech-chip">Power BI</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-type">Blockchain</p>
+          <h3>LandChain</h3>
+          <ul>
+            <li>Sole frontend developer; 4-view React SPA with MetaMask wallet connection and a React-Leaflet map</li>
+            <li>Connected to a Solidity smart contract on Sepolia and a Node.js/Ethers.js backend with IPFS integrity verification</li>
+          </ul>
+          <div class="tech-row">
+            <span class="tech-chip">React</span>
+            <span class="tech-chip">Solidity</span>
+            <span class="tech-chip">IPFS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="also-worked">
+        <strong>Also worked on:</strong>
+        <span class="tech-chip">Indian States Dashboard (Power BI)</span>
+        <span class="tech-chip">Coffee Vending Machine (Python)</span>
+        <span class="tech-chip">Password Generator (Python)</span>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

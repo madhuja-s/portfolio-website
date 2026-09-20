@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Madhuja Suryawanshi | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="pulse-bar"></div>
+
+  <aside class="sidebar">
+    <a href="index.html" class="logo">MS</a>
+    <button class="sidebar-toggle" aria-label="Toggle menu">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <section class="profile-panel fade-in">
+      <img src="assets/images/profile.jpg" alt="Madhuja Suryawanshi" class="avatar-photo" />
+
+      <div class="profile-text">
+        <p class="hero-greeting">Hi, I'm</p>
+        <h1 class="hero-name">Madhuja Suryawanshi</h1>
+        <p class="hero-tagline">Aspiring Business Analyst | AI & Data Science Student</p>
+        <p class="hero-subtext">Turning data into stories that drive decisions.</p>
+
+        <div class="stat-row">
+          <div class="stat">
+            <span class="stat-num" data-target="3">0</span>
+            <span class="stat-label">Featured Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-target="5">0</span>
+            <span class="stat-label">Skill Areas</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-target="4">0</span>
+            <span class="stat-label">Roles & Recognitions</span>
+          </div>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="projects.html" class="btn btn-primary">View My Work</a>
+          <a href="resume.html" class="btn btn-secondary">My Resume</a>
+        </div>
+      </div>
+
+      <svg class="hero-chart" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+        <polyline class="line" points="10,80 55,60 95,68 140,25 190,12" />
+        <circle class="dot" cx="10" cy="80" r="4" fill="#16305C" style="animation-delay:1.7s" />
+        <circle class="dot" cx="55" cy="60" r="4" fill="#16305C" style="animation-delay:1.85s" />
+        <circle class="dot" cx="95" cy="68" r="4" fill="#16305C" style="animation-delay:2s" />
+        <circle class="dot" cx="140" cy="25" r="4" fill="#16305C" style="animation-delay:2.15s" />
+        <circle class="dot" cx="190" cy="12" r="4" fill="#F5B301" style="animation-delay:2.3s" />
+      </svg>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

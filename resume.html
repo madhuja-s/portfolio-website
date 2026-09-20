@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume | Madhuja Suryawanshi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="pulse-bar"></div>
+
+  <aside class="sidebar">
+    <a href="index.html" class="logo">MS</a>
+    <button class="sidebar-toggle" aria-label="Toggle menu">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <section class="panel fade-in resume-panel">
+      <div class="panel-header" data-watermark="Resume">
+        <h1>Resume</h1>
+        <span class="panel-meta">2 formats</span>
+      </div>
+
+      <p class="resume-text">
+        Download a copy of my resume below for the full picture of my education,
+        projects, and experience.
+      </p>
+
+      <div class="hero-buttons" style="justify-content:center;">
+        <a href="assets/resume.pdf" download class="btn btn-primary">Download Resume (Text)</a>
+        <a href="assets/resume-image.pdf" download class="btn btn-secondary">Download Resume (Image)</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
