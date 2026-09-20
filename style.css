@@ -442,3 +442,76 @@ ul { list-style: none; }
   .panel, .profile-panel { padding: 30px 26px; }
   .panel-header::after { font-size: 60px; top: -30px; }
 }
+/* ---------- Logo mark ---------- */
+.logo svg {
+  width: 42px;
+  height: 42px;
+  display: block;
+}
+
+/* ---------- Borders added where missing ---------- */
+.sidebar {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.panel {
+  border: 1px solid var(--border);
+}
+
+.profile-panel {
+  border: 1px solid var(--border);
+}
+
+.stat-row {
+  border: 1px solid var(--border);
+}
+
+.chip {
+  border: 1px solid rgba(30, 76, 144, 0.15);
+}
+
+.tech-chip {
+  border: 1px solid rgba(30, 76, 144, 0.15);
+}
+
+/* ---------- Icon badges (used in Skills, Projects, Experience, About) ---------- */
+.icon-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  background: rgba(30, 76, 144, 0.08);
+  border: 1px solid rgba(30, 76, 144, 0.15);
+}
+
+.icon-badge svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--blue);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.skill-tile:nth-child(even) .icon-badge,
+.project-card:nth-child(even) .icon-badge {
+  background: rgba(245, 179, 1, 0.12);
+  border-color: rgba(245, 179, 1, 0.3);
+}
+
+.skill-tile:nth-child(even) .icon-badge svg,
+.project-card:nth-child(even) .icon-badge svg {
+  stroke: var(--yellow-dark);
+}
+
+.timeline-item .icon-badge {
+  margin-bottom: 10px;
+}
+
+.about-icon {
+  margin-bottom: 6px;
+}
