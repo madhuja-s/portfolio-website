@@ -7,10 +7,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="bg-canvas"></canvas>
-  <div class="pulse-bar"></div>
+  <div class="transition-circle"></div>
+  <svg class="avatar-bg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="150" cy="110" r="60" fill="#1E4C90"/>
+    <path d="M55 280 Q150 175 245 280 Z" fill="#1E4C90"/>
+    <circle class="orbit-dot" cx="150" cy="60" r="8" fill="#F5B301"/>
+    <circle class="orbit-dot d2" cx="90" cy="140" r="6" fill="#1E4C90"/>
+    <circle class="orbit-dot d3" cx="210" cy="140" r="5" fill="#F5B301"/>
+  </svg>
 
-  <aside class="sidebar">
+  <nav class="topnav">
     <a href="index.html" class="logo">
       <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
         <rect x="1" y="1" width="38" height="38" rx="10" fill="#1E4C90"/>
@@ -18,18 +24,28 @@
         <path d="M24 14c3-3 8-1 8 3s-8 4-8 8 5 6 8 3" stroke="#F5B301" stroke-width="3" fill="none" stroke-linecap="round"/>
       </svg>
     </a>
-    <button class="sidebar-toggle" aria-label="Toggle menu">&#9776;</button>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-      </ul>
-    </nav>
-  </aside>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-resume">
+        <a href="assets/resume.pdf" download title="Download Resume (Text)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16"/></svg>
+        </a>
+        <a href="assets/resume-image.pdf" download title="Download Resume (Image)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><circle cx="8" cy="9" r="2"/><path d="M21 15l-5-5-9 9"/></svg>
+        </a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
 
   <div class="main">
     <section class="panel fade-in">
@@ -40,74 +56,33 @@
 
       <div class="skills-bento">
         <div class="skill-tile span-3">
-          <div class="icon-badge">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="10" width="3" height="8"/>
-              <rect x="10.5" y="6" width="3" height="12"/>
-              <rect x="17" y="13" width="3" height="5"/>
-            </svg>
-          </div>
+          <div class="icon-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="10" width="3" height="8"/><rect x="10.5" y="6" width="3" height="12"/><rect x="17" y="13" width="3" height="5"/></svg></div>
           <h3>Data & Analytics</h3>
-          <span class="chip">SQL</span>
-          <span class="chip">Power BI</span>
-          <span class="chip">Microsoft Excel</span>
-          <span class="chip">Data Visualization</span>
-          <span class="chip">RFM Analysis</span>
+          <span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">Microsoft Excel</span><span class="chip">Data Visualization</span><span class="chip">RFM Analysis</span>
         </div>
 
         <div class="skill-tile span-3">
-          <div class="icon-badge">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <rect x="6" y="6" width="12" height="12" rx="2"/>
-              <path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>
-            </svg>
-          </div>
+          <div class="icon-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
           <h3>Machine Learning</h3>
-          <span class="chip">Logistic Regression</span>
-          <span class="chip">Random Forest</span>
-          <span class="chip">XGBoost</span>
-          <span class="chip">SHAP</span>
-          <span class="chip">SMOTE</span>
+          <span class="chip">Logistic Regression</span><span class="chip">Random Forest</span><span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">SMOTE</span>
         </div>
 
         <div class="skill-tile span-2">
-          <div class="icon-badge">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <polyline points="8 6 2 12 8 18"/>
-              <polyline points="16 6 22 12 16 18"/>
-            </svg>
-          </div>
+          <div class="icon-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/></svg></div>
           <h3>Programming</h3>
-          <span class="chip">Python</span>
-          <span class="chip">C</span>
-          <span class="chip">Git / GitHub</span>
+          <span class="chip">Python</span><span class="chip">C</span><span class="chip">Git / GitHub</span>
         </div>
 
         <div class="skill-tile span-2">
-          <div class="icon-badge">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M3 12h18M12 3c2.5 2.5 4 5.7 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.7-4-9s1.5-6.5 4-9z"/>
-            </svg>
-          </div>
+          <div class="icon-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 4 5.7 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.7-4-9s1.5-6.5 4-9z"/></svg></div>
           <h3>Web & Blockchain</h3>
-          <span class="chip">React.js</span>
-          <span class="chip">Solidity (basics)</span>
-          <span class="chip">HTML/CSS/JS</span>
+          <span class="chip">React.js</span><span class="chip">Solidity (basics)</span><span class="chip">HTML/CSS/JS</span>
         </div>
 
         <div class="skill-tile span-2">
-          <div class="icon-badge">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-            </svg>
-          </div>
+          <div class="icon-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
           <h3>Languages</h3>
-          <span class="chip">English</span>
-          <span class="chip">Marathi</span>
-          <span class="chip">Hindi</span>
-          <span class="chip">German</span>
-          <span class="chip">Finnish</span>
+          <span class="chip">English</span><span class="chip">Marathi</span><span class="chip">Hindi</span><span class="chip">German</span><span class="chip">Finnish</span>
         </div>
       </div>
     </section>

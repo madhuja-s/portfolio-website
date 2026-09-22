@@ -7,10 +7,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="bg-canvas"></canvas>
-  <div class="pulse-bar"></div>
+  <div class="transition-circle"></div>
+  <svg class="avatar-bg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="150" cy="110" r="60" fill="#1E4C90"/>
+    <path d="M55 280 Q150 175 245 280 Z" fill="#1E4C90"/>
+    <circle class="orbit-dot" cx="150" cy="60" r="8" fill="#F5B301"/>
+    <circle class="orbit-dot d2" cx="90" cy="140" r="6" fill="#1E4C90"/>
+    <circle class="orbit-dot d3" cx="210" cy="140" r="5" fill="#F5B301"/>
+  </svg>
 
-  <aside class="sidebar">
+  <nav class="topnav">
     <a href="index.html" class="logo">
       <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
         <rect x="1" y="1" width="38" height="38" rx="10" fill="#1E4C90"/>
@@ -18,18 +24,28 @@
         <path d="M24 14c3-3 8-1 8 3s-8 4-8 8 5 6 8 3" stroke="#F5B301" stroke-width="3" fill="none" stroke-linecap="round"/>
       </svg>
     </a>
-    <button class="sidebar-toggle" aria-label="Toggle menu">&#9776;</button>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-      </ul>
-    </nav>
-  </aside>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-resume">
+        <a href="assets/resume.pdf" download title="Download Resume (Text)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16"/></svg>
+        </a>
+        <a href="assets/resume-image.pdf" download title="Download Resume (Image)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><circle cx="8" cy="9" r="2"/><path d="M21 15l-5-5-9 9"/></svg>
+        </a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
 
   <div class="main">
     <section class="panel fade-in">
@@ -38,7 +54,7 @@
         <span class="panel-meta">Final-year student</span>
       </div>
 
-      <div class="icon-badge about-icon">
+      <div class="icon-badge">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.5.4.8 1 .8 1.6V17h6.4v-.7c0-.6.3-1.2.8-1.6A7 7 0 0 0 12 2z"/>
         </svg>
@@ -52,6 +68,13 @@
           on, which is what pulled me toward <strong>Business Analytics</strong> in the first
           place.
         </p>
+
+        <div class="quick-facts">
+          <span class="fact-chip">📍 Chh. Sambhajinagar, India</span>
+          <span class="fact-chip">🎓 Exp. Graduation Sept 2027</span>
+          <span class="fact-chip">💼 Seeking BA / DA roles</span>
+          <span class="fact-chip">🗣 English · Marathi · Hindi</span>
+        </div>
 
         <blockquote class="pull-quote">
           Turning messy numbers into a story someone can actually act on.
