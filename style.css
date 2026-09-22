@@ -16,10 +16,13 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+html {
+  background-color: var(--canvas);
+}
+
 body {
   font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
   color: var(--ink);
-  background-color: var(--canvas);
   position: relative;
   overflow-x: hidden;
 }
@@ -35,7 +38,7 @@ ul { list-style: none; }
   width: 480px;
   height: 480px;
   opacity: 0.08;
-  z-index: -1;
+  z-index: 0;
   animation: floatAvatar 7s ease-in-out infinite;
 }
 
@@ -499,4 +502,14 @@ ul { list-style: none; }
 .nav-links {
   flex-wrap: wrap;
   row-gap: 8px;
+}
+.logo svg .logo-head {
+  animation: logoFloat 3s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
 }
