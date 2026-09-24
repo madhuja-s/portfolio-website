@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Sidebar nav highlighting ---
+  // --- Nav active state ---
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".sidebar nav a").forEach(link => {
+  document.querySelectorAll(".nav-links a").forEach(link => {
     link.classList.toggle("active", link.getAttribute("href") === currentPage);
   });
 
-  // --- Mobile sidebar toggle ---
-  const toggleBtn = document.querySelector(".sidebar-toggle");
-  const sidebar = document.querySelector(".sidebar");
-  if (toggleBtn && sidebar) {
-    toggleBtn.addEventListener("click", () => sidebar.classList.toggle("open"));
+  // --- Mobile nav toggle ---
+  const toggleBtn = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener("click", () => navLinks.classList.toggle("open"));
   }
 
   // --- Animated stat counters ---
@@ -29,73 +29,55 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(tick);
   });
 
-  // --- Cursor-reactive tilt on cards ---
-  const tiltEls = document.querySelectorAll(".skill-tile, .project-card, .project-feature");
-  tiltEls.forEach(card => {
-    const base = parseFloat(getComputedStyle(card).getPropertyValue("--base-rotate")) || 0;
+  // --- Circular page transition ---
+  const circle = document.querySelector(".transition-circle");
+  if (circle) {
+    const diagonal = Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2);
+    const maxScale = (diagonal * 2.2) / 40;
 
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width / 2, cy = rect.height / 2;
-      const rotateX = ((y - cy) / cy) * -5;
-      const rotateY = ((x - cx) / cx) * 5;
-      card.style.transform = `perspective(700px) rotate(${base}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-    });
+    const storedX = sessionStorage.getItem("txX");
+    const storedY = sessionStorage.getItem("txY");
+    const originX = storedX !== null ? parseFloat(storedX) : window.innerWidth / 2;
+    const originY = storedY !== null ? parseFloat(storedY) : window.innerHeight / 2;
 
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = `rotate(${base}deg)`;
-    });
-  });
+    circle.style.left = originX + "px";
+    circle.style.top = originY + "px";
+    circle.style.transition = "none";
+    circle.style.transform = `translate(-50%, -50%) scale(${maxScale})`;
 
-  // --- Interactive dot-field background ---
-  const canvas = document.getElementById("bg-canvas");
-  if (canvas && window.matchMedia("(min-width: 850px)").matches) {
-    const ctx = canvas.getContext("2d");
-    let w, h, dots = [];
-    const spacing = 34;
-    const mouse = { x: -9999, y: -9999 };
-
-    function resize() {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-      dots = [];
-      for (let x = spacing / 2; x < w; x += spacing) {
-        for (let y = spacing / 2; y < h; y += spacing) {
-          dots.push({ x, y });
-        }
-      }
-    }
-
-    window.addEventListener("mousemove", (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
-    window.addEventListener("mouseleave", () => {
-      mouse.x = -9999;
-      mouse.y = -9999;
-    });
-    window.addEventListener("resize", resize);
-
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      dots.forEach((d) => {
-        const dx = d.x - mouse.x, dy = d.y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const influence = Math.max(0, 1 - dist / 150);
-        const radius = 1.3 + influence * 3.2;
-        ctx.beginPath();
-        ctx.arc(d.x, d.y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = influence > 0.05
-          ? `rgba(245, 179, 1, ${0.3 + influence * 0.6})`
-          : "rgba(217, 225, 242, 0.9)";
-        ctx.fill();
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        circle.style.transition = "transform 0.6s cubic-bezier(.65,0,.35,1)";
+        circle.style.transform = "translate(-50%, -50%) scale(0)";
       });
-      requestAnimationFrame(draw);
-    }
+    });
 
-    resize();
-    draw();
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (!href || link.classList.contains("active")) return;
+        e.preventDefault();
+
+        const rect = link.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        sessionStorage.setItem("txX", x);
+        sessionStorage.setItem("txY", y);
+
+        circle.style.left = x + "px";
+        circle.style.top = y + "px";
+        circle.style.transition = "none";
+        circle.style.transform = "translate(-50%, -50%) scale(0)";
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            circle.style.transition = "transform 0.6s cubic-bezier(.65,0,.35,1)";
+            circle.style.transform = `translate(-50%, -50%) scale(${maxScale})`;
+          });
+        });
+
+        setTimeout(() => { window.location.href = href; }, 600);
+      });
+    });
   }
 });
