@@ -29,27 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(tick);
   });
 
-  // --- Circular page transition ---
-  const circle = document.querySelector(".transition-circle");
-  if (circle) {
-    const diagonal = Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2);
-    const maxScale = (diagonal * 2.2) / 40;
+  // --- Page transition (fade curtain) ---
+  const overlay = document.querySelector(".page-transition-overlay");
+  const main = document.querySelector(".main");
+  const nav = document.querySelector(".topnav");
 
-    const storedX = sessionStorage.getItem("txX");
-    const storedY = sessionStorage.getItem("txY");
-    const originX = storedX !== null ? parseFloat(storedX) : window.innerWidth / 2;
-    const originY = storedY !== null ? parseFloat(storedY) : window.innerHeight / 2;
-
-    circle.style.left = originX + "px";
-    circle.style.top = originY + "px";
-    circle.style.transition = "none";
-    circle.style.transform = `translate(-50%, -50%) scale(${maxScale})`;
-
+  if (overlay) {
+    // Reveal current page smoothly on load
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        circle.style.transition = "transform 0.6s cubic-bezier(.65,0,.35,1)";
-        circle.style.transform = "translate(-50%, -50%) scale(0)";
-      });
+      overlay.classList.add("hidden");
     });
 
     document.querySelectorAll(".nav-links a").forEach(link => {
@@ -58,25 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!href || link.classList.contains("active")) return;
         e.preventDefault();
 
-        const rect = link.getBoundingClientRect();
-        const x = rect.left + rect.width / 2;
-        const y = rect.top + rect.height / 2;
-        sessionStorage.setItem("txX", x);
-        sessionStorage.setItem("txY", y);
+        if (main) main.classList.add("pt-fade");
+        if (nav) nav.classList.add("pt-fade");
+        overlay.classList.remove("hidden");
 
-        circle.style.left = x + "px";
-        circle.style.top = y + "px";
-        circle.style.transition = "none";
-        circle.style.transform = "translate(-50%, -50%) scale(0)";
-
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            circle.style.transition = "transform 0.6s cubic-bezier(.65,0,.35,1)";
-            circle.style.transform = `translate(-50%, -50%) scale(${maxScale})`;
-          });
-        });
-
-        setTimeout(() => { window.location.href = href; }, 600);
+        setTimeout(() => { window.location.href = href; }, 380);
       });
     });
   }
