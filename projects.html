@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="transition-circle"></div>
+  <div class="page-transition-overlay"><div class="pt-mark"></div></div>
   <div class="avatar-bg-photo"><img src="assets/images/avatar-bg.png" alt="" /></div>
 
   <nav class="topnav">
@@ -24,7 +24,7 @@
     </ul>
     <div class="nav-right">
       <div class="nav-resume">
-        <a href="assets/resume.pdf" download title="Download Resume (Text)">
+        <a href="assets/resume.pdf" download title="Download Resume">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16"/></svg>
         </a>
       </div>
@@ -36,7 +36,7 @@
     <section class="panel fade-in">
       <div class="panel-header" data-watermark="Projects">
         <h1>Projects</h1>
-        <span class="panel-meta">3 featured</span>
+        <span class="panel-meta">5 featured</span>
       </div>
 
       <div class="project-feature">
@@ -73,6 +73,30 @@
             <li>Connected to a Solidity smart contract on Sepolia and a Node.js/Ethers.js backend with IPFS integrity verification</li>
           </ul>
           <div class="tech-row"><span class="tech-chip">React</span><span class="tech-chip">Solidity</span><span class="tech-chip">IPFS</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 7v10M12 10v7M16 13v4"/></svg></div>
+          <p class="project-type">Productivity App</p>
+          <h3>Tracko</h3>
+          <ul>
+            <li>Personal routine and finance tracker with daily/weekly/monthly resets and a notebook-style interface (page-flip navigation)</li>
+            <li>Google/email authentication, customizable goal areas, income/expense/savings tracking with budgets and recurring bills</li>
+            <li>Encrypted vault for private notes and finances; deployed on Firebase Hosting</li>
+          </ul>
+          <div class="tech-row"><span class="tech-chip">React</span><span class="tech-chip">Firebase</span><span class="tech-chip">PWA</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <p class="project-type">Web Development</p>
+          <h3>This Portfolio Website</h3>
+          <ul>
+            <li>Fully custom-built, animated portfolio designed and coded from scratch, no framework used</li>
+            <li>Responsive top navigation, smooth page transitions, and an interactive bento-grid skills layout</li>
+            <li>Version-controlled and deployed via GitHub Pages</li>
+          </ul>
+          <div class="tech-row"><span class="tech-chip">HTML</span><span class="tech-chip">CSS</span><span class="tech-chip">JavaScript</span></div>
         </div>
       </div>
 
